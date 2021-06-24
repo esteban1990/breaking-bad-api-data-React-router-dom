@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+import { GridCharacter } from './components/characters/GridCharacter'
+import { Navbar } from './components/Navbar'
+import { GridEpisodes } from './components/episodes/GridEpisodes'
+import { GridQuote } from './components/quotes/GridQuote'
+import { Home } from './components/Home'
 
-function App() {
+
+
+
+
+const App = () => {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
 
-export default App;
+
+    <Router>
+      
+    <Navbar />
+    {/* <Home/> */}
+
+
+    <Route exact path="/">
+    <Home/>
+    </Route>
+
+    <Route exact path="/characters">
+    <GridCharacter/>
+    </Route>
+
+    <Route exact path="/episodes">
+      <GridEpisodes/>
+    </Route>
+
+    <Route exact path="/quotes">
+      <GridQuote/>
+    </Route>
+
+
+
+    </Router>
+    </>
+  )
+}
+export default App
